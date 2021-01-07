@@ -4,7 +4,6 @@
 
 <%
     request.setCharacterEncoding("utf-8");
-    String userinfo_userEmail_sender = request.getParameter("userinfo_userEmail_sender");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -19,7 +18,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
- 	    String WhereDefault = "select max(chattingNumber) from chatting where userinfo_userEmail_receiver = ? or userinfo_userEmail_sender = ?";
+ 	    String WhereDefault = "select max(chattingNumber) from chatting";
 
         ps = conn_mysql.prepareStatement(WhereDefault);
         ps.setString(1, userinfo_userEmail_sender);
