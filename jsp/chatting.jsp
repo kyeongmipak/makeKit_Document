@@ -46,8 +46,10 @@
 			{
 			        "userinfo_userEmail_sender" : "<%=rs.getString(1) %>", 
                     "userinfo_userEmail_receiver" : "<%=rs.getString(2) %>",
-                    "chattingContents" :<%=rs.getString(3) %>
-                    "chattingInsertDate" :<%=rs.getString(4) %>
+                    "chattingContents" :"<%=rs.getString(3) %>",
+                    "chattingInsertDate" :"<%=rs.getString(4) %>",
+                    "chattingNumber" : "<%=rs.getString(5) %>"
+
 			}
 
 <%		
