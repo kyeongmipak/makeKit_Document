@@ -1,8 +1,8 @@
 CREATE DATABASE  IF NOT EXISTS `makekit` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `makekit`;
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
 --
--- Host: 127.0.0.1    Database: makekit
+-- Host: localhost    Database: makekit
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -236,7 +236,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (42,'김치찌개',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `product` VALUES (41,'김치',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(42,'김치찌개',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,6 +250,8 @@ DROP TABLE IF EXISTS `register`;
 CREATE TABLE `register` (
   `userinfo_userEmail` varchar(15) NOT NULL,
   `product_productNo` int(11) NOT NULL,
+  `selleraddress` varchar(45) DEFAULT NULL,
+  `selleraddressdetail` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`product_productNo`),
   KEY `fk_register_userinfo1_idx` (`userinfo_userEmail`),
   CONSTRAINT `fk_register_product1` FOREIGN KEY (`product_productNo`) REFERENCES `product` (`productNo`),
@@ -263,6 +265,7 @@ CREATE TABLE `register` (
 
 LOCK TABLES `register` WRITE;
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
+INSERT INTO `register` VALUES ('qkr@naver.com',41,'서울 강남구 강남대로 402',NULL),('son@naver.com',42,'서울 강남구 강남대로 398',NULL);
 /*!40000 ALTER TABLE `register` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,6 +296,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
+INSERT INTO `userinfo` VALUES ('qkr@naver.com','1234','홍길동','서울 강남구 강남대로 402',NULL,NULL,NULL,NULL,NULL),('son@naver.com','1234','유비','서울 강남구 강남대로 399',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -305,4 +309,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-07  1:32:11
+-- Dump completed on 2021-01-07 16:10:19
