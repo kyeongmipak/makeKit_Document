@@ -6,8 +6,8 @@
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
-   	String query = "select userinfo_userEmail selleremail, u.username sellername, useraddress selleraddress from register r, userinfo u ";
-	String query1 = "where r.userinfo_userEmail = u.userEmail group by userinfo_userEmail";
+   	String query = "select userinfo_userEmail selleremail, u.username selleraname, r.selleraddress, r.selleraddressdetail from register r, userinfo u ";
+	String query1 = "where r.userinfo_userEmail = u.userEmail group by userinfo_userEmail, r.selleraddress, r.selleraddressdetail";
     int count = 0;
     
     try {
@@ -30,9 +30,10 @@
             }
 %>            
 			{
-			"selleremail" : "<%=rs.getString(1) %>", 
-			"sellername" : "<%=rs.getString(2) %>",   
-			"selleraddress" : "<%=rs.getString(3) %>"
+			"sellerEmail" : "<%=rs.getString(1) %>", 
+			"sellerName" : "<%=rs.getString(2) %>",   
+			"sellerAddress" : "<%=rs.getString(3) %>",
+			"sellerAddressDetail" : "<%=rs.getString(4) %>"
 			}
 
 <%		
