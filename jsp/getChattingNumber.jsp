@@ -21,8 +21,6 @@
  	    String WhereDefault = "select max(chattingNumber) from chatting";
 
         ps = conn_mysql.prepareStatement(WhereDefault);
-        ps.setString(1, userinfo_userEmail_sender);
-        ps.setString(2, userinfo_userEmail_sender);
         rs = ps.executeQuery();
 %>
 		{ 
