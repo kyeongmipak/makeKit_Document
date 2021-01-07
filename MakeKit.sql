@@ -1,8 +1,8 @@
 CREATE DATABASE  IF NOT EXISTS `makekit` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `makekit`;
--- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: makekit
+-- Host: 127.0.0.1    Database: makekit
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -84,6 +84,7 @@ DROP TABLE IF EXISTS `chatting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chatting` (
+  `chattingNumber` int(11) NOT NULL,
   `userinfo_userEmail_sender` varchar(15) NOT NULL,
   `userinfo_userEmail_receiver` varchar(15) NOT NULL,
   `product_prdNo` int(11) NOT NULL,
@@ -309,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-07 16:10:19
+-- Dump completed on 2021-01-07 16:53:58
