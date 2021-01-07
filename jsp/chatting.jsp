@@ -4,6 +4,8 @@
 
 <%
     request.setCharacterEncoding("utf-8");
+    String userinfo_userEmail_sender = request.getParameter("userinfo_userEmail_sender");
+    String userinfo_userEmail_receiver = request.getParameter("userinfo_userEmail_receiver");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -19,9 +21,13 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select * from chatting.chatting_log";
+        String WhereDefault = "SELECT * FROM chatting where (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?) or (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?);";
         
-        ps = conn_mysql.prepareStatement(WhereDefault ); // 
+        ps = conn_mysql.prepareStatement(WhereDefault );
+        ps.setString(1, userinfo_userEmail_sender);
+		ps.setString(2, userinfo_userEmail_receiver);
+        ps.setString(3, userinfo_userEmail_receiver);
+        ps.setString(4, userinfo_userEmail_sender);
         rs = ps.executeQuery();
 
 %>
@@ -38,9 +44,10 @@
             }
 %>            
 			{
-			        "sendId" : "<%=rs.getString(1) %>", 
-                    "sendContents" : "<%=rs.getString(2) %>",
-                    "chattingNo" :<%=rs.getString(3) %>
+			        "userinfo_userEmail_sender" : "<%=rs.getString(1) %>", 
+                    "userinfo_userEmail_receiver" : "<%=rs.getString(2) %>",
+                    "chattingContents" :<%=rs.getString(3) %>
+                    "chattingInsertDate" :<%=rs.getString(4) %>
 			}
 
 <%		
