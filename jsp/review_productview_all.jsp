@@ -20,7 +20,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select o.orderDetailNo orderDetailNo, u.userName reviewWriterName, o.orderReview reviewContent, o.orderReviewImg reviewImage, o.orderReviewDate reviewDate, o.orderStar reviewStar ";
+       String query = "select o.orderDetailNo orderDetailNo, u.userName reviewWriterName, o.orderReview reviewContent, o.orderReviewImg reviewImage, o.orderReviewInsertDate reviewDate, o.orderStar reviewStar ";
 	String query1 = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.goods_productNo = ? order by o.orderReviewDate desc";
 
         ps = conn_mysql.prepareStatement(query + query1); // 
