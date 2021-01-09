@@ -7,15 +7,16 @@
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
     String A = "select userEmail, userName, userPw, userAddress, userAddressDetail, userTel, userBirth ";
-    String B = "from userinfo where userdeletedate is null";
+    String B = "from userinfo where userDeleteDate is null;";
     int count = 0;
+    ResultSet rs =null;
     
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        ResultSet rs = stmt_mysql.executeQuery(A+B); // 
+        rs = stmt_mysql.executeQuery(A+B); // 
 %>
 		{ 
   			"user_info"  : [ 
