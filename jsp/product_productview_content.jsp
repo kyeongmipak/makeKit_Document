@@ -20,8 +20,8 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select o.orderDetailNo orderDetailNo, u.userName reviewWriterName, o.orderReview reviewContent, o.orderReviewImg reviewImage, o.orderReviewInsertDate reviewDate, o.orderStar reviewStar ";
-	String query1 = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.goods_productNo = ? order by o.orderReviewInsertDate desc";
+       String query = "select productNo, productName, productPrice, productContent, productFilename, productDFilename, ";
+	String query1 = "productAFilename from product where productNo = ?";
 
         ps = conn_mysql.prepareStatement(query + query1); // 
         ps.setString(1, productno);
@@ -29,7 +29,7 @@
         rs = ps.executeQuery();
 %>
 		{ 
-  			"review_info"  : [ 
+  			"product_info"  : [ 
 <%
         while (rs.next()) {
             if (count == 0) {
@@ -41,12 +41,14 @@
             }
 %>            
 			{
-			"orderDetailNo" : "<%=rs.getString(1) %>", 
-			"reviewWriterName" : "<%=rs.getString(2) %>", 
-			"reviewContent" : "<%=rs.getString(3) %>",   
-			"reviewImage" : "<%=rs.getString(4) %>",
-			"reviewDate" : "<%=rs.getString(5) %>",
-			"reviewStar" : "<%=rs.getString(6) %>"
+			"productNo" : "<%=rs.getString(1) %>", 
+			"productName" : "<%=rs.getString(2) %>", 
+			"productPrice" : "<%=rs.getString(3) %>", 
+			"productContent" : "<%=rs.getString(4) %>",   
+			"productFilename" : "<%=rs.getString(5) %>",
+			"productDFilename" : "<%=rs.getString(6) %>",
+			"productAFilename" : "<%=rs.getString(7) %>"
+		
 			}
 
 <%		
