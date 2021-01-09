@@ -1,12 +1,14 @@
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%
-	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
- 	String id_mysql = "root";
- 	String pw_mysql = "qwer1234";
-    String WhereDefault = "select userEmail, userPw, userName, userAddress, userAddressDetail, userTel, userBirth from userinfo";
+    request.setCharacterEncoding("utf-8");
+    String email = request.getParameter("email");
+    
+        String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
+         String id_mysql = "root";
+         String pw_mysql = "qwer1234";
+        String WhereDefault = "select userEmail, userPw, userName, userAddress, userAddressDetail, userTel, userBirth, userImage from makekit.userinfo where userEmail = '"+email+"'";
     int count = 0;
     
     try {
@@ -32,10 +34,11 @@
 			"userEmail" : "<%=rs.getString(1) %>", 
 			"userPw" : "<%=rs.getString(2) %>",   
 			"userName" : "<%=rs.getString(3) %>",  
-            "userAddress" : "<%=rs.getString(4) %>"
-            "userAddressDetail" : "<%=rs.getString(5) %>"
-            "userTel" : "<%=rs.getString(6) %>"
-            "userBirth" : "<%=rs.getString(7) %>"
+            "userAddress" : "<%=rs.getString(4) %>",
+            "userAddressDetail" : "<%=rs.getString(5) %>",
+            "userTel" : "<%=rs.getString(6) %>",
+            "userBirth" : "<%=rs.getString(7) %>",
+            "userImage" : "<%=rs.getString(8) %>"
 			}
 
 <%		
