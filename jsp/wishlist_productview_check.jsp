@@ -5,6 +5,7 @@
 <%
 	request.setCharacterEncoding("utf-8");
     	String productno = request.getParameter("productno");
+	String useremail = request.getParameter("useremail");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -20,16 +21,16 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select r.userinfo_userEmail sellerEmail, p.productNo, productName, productPrice, productContent, productFilename, productDFilename, ";
-	String query1 = "productAFilename from product p, register r where p.productNo = r.product_productNo and p.productNo = ?";
-
-        ps = conn_mysql.prepareStatement(query + query1); // 
-        ps.setString(1, productno);
+       String query = "select wishlistInsertDate from wishlist where userinfo_userEmail = ? and product_productNo = ?";
+	
+        ps = conn_mysql.prepareStatement(query); // 
+        ps.setString(1, useremail);
+	ps.setString(2, productno);
 
         rs = ps.executeQuery();
 %>
 		{ 
-  			"product_info"  : [ 
+  			"wishlist_info"  : [ 
 <%
         while (rs.next()) {
             if (count == 0) {
@@ -41,15 +42,8 @@
             }
 %>            
 			{
-			"sellerEmail" : "<%=rs.getString(1) %>", 
-			"productNo" : "<%=rs.getString(2) %>", 
-			"productName" : "<%=rs.getString(3) %>", 
-			"productPrice" : "<%=rs.getString(4) %>", 
-			"productContent" : "<%=rs.getString(5) %>",   
-			"productFilename" : "<%=rs.getString(6) %>",
-			"productDFilename" : "<%=rs.getString(7) %>",
-			"productAFilename" : "<%=rs.getString(8) %>"
-		
+			"wishlistInsertDate" : "<%=rs.getString(1) %>"
+			
 			}
 
 <%		
