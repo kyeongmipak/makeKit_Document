@@ -39,7 +39,7 @@
 			{
                 "productNo" : "<%=rs.getString(1) %>", 
                 "productName" : "<%=rs.getString(2) %>",   
-                "productType" : <%=rs.getString(3) %>,  
+                "productType" : "<%=rs.getString(3) %>",  
                 "productPrice" : "<%=rs.getString(4) %>",
                 "productStock" : "<%=rs.getString(5) %>",
                 "productContent" : "<%=rs.getString(6) %>",
@@ -47,7 +47,7 @@
                 "productDFilename" : "<%=rs.getString(8) %>",
                 "productAFilename" : "<%=rs.getString(9) %>",
                 "productInsertDate" : "<%=rs.getString(10) %>",
-                "productDeleteDate" : <%= rs.getString(11) %>
+                "productDeleteDate" : "<%= rs.getString(11) %>"
 			}
 
 <%		

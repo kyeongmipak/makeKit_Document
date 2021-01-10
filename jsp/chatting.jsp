@@ -21,7 +21,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "SELECT * FROM chatting where (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?) or (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?);";
+        String WhereDefault = "SELECT * FROM chatting where (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?) or (userinfo_userEmail_sender = ? and userinfo_userEmail_receiver = ?) order by chattingInsertDate";
         
         ps = conn_mysql.prepareStatement(WhereDefault );
         ps.setString(1, userinfo_userEmail_sender);
