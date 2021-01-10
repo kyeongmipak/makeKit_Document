@@ -5,6 +5,7 @@
 <%
     request.setCharacterEncoding("utf-8");
     String search = request.getParameter("search");
+    String number = request.getParameter("number");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -19,9 +20,10 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select * from product where productName like '%"+search+"%'";
+        String WhereDefault = "select * from product where productName like '%"+search+"%' and mod(productNo,2)=?";
 
         ps = conn_mysql.prepareStatement(WhereDefault);
+		ps.setString(1, number);
         rs = ps.executeQuery();
 %>
 		{ 
@@ -39,7 +41,7 @@
 			{
                 "productNo" : "<%=rs.getString(1) %>", 
                 "productName" : "<%=rs.getString(2) %>",   
-                "productType" : <%=rs.getString(3) %>,  
+                "productType" : "<%=rs.getString(3) %>",  
                 "productPrice" : "<%=rs.getString(4) %>",
                 "productStock" : "<%=rs.getString(5) %>",
                 "productContent" : "<%=rs.getString(6) %>",
@@ -47,7 +49,7 @@
                 "productDFilename" : "<%=rs.getString(8) %>",
                 "productAFilename" : "<%=rs.getString(9) %>",
                 "productInsertDate" : "<%=rs.getString(10) %>",
-                "productDeleteDate" : <%= rs.getString(11) %>
+                "productDeleteDate" : "<%= rs.getString(11) %>"
 			}
 
 <%		
