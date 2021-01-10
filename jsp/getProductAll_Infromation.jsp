@@ -5,7 +5,6 @@
 <%
     request.setCharacterEncoding("utf-8");
     String search = request.getParameter("search");
-    String number = request.getParameter("number");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -20,10 +19,9 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select * from product where productName like '%"+search+"%' and mod(productNo,2)=?";
+        String WhereDefault = "select * from product where productName like '%"+search+"%'";
 
         ps = conn_mysql.prepareStatement(WhereDefault);
-		ps.setString(1, number);
         rs = ps.executeQuery();
 %>
 		{ 
