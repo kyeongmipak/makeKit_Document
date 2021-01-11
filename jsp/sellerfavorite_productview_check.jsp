@@ -21,9 +21,9 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select l.userinfo_userEmail userEamil, l.userinfo_like_userEmail sellerEmail, r.product_productNo productNo from likeuser l, register r where l.userinfo_userEmail = ? and l.userinfo_like_userEmail = r.userinfo_userEmail and r.product_productNo = ?";
-	
-        ps = conn_mysql.prepareStatement(query); // 
+       String query = "select l.userinfo_userEmail userEamil, l.userinfo_like_userEmail favoriteSellerEmail, r.userinfo_userEmail sellerEmail, r.product_productNo productNo, u.userName sellerName, u.userImage sellerImage from likeuser l, register r, userinfo u ";
+       String query1 = "where l.userinfo_userEmail = ? and l.userinfo_like_userEmail = r.userinfo_userEmail and u.userEmail = l.userinfo_like_userEmail and r.product_productNo = ?";
+        ps = conn_mysql.prepareStatement(query + query1); // 
         ps.setString(1, useremail);
 	ps.setString(2, productno);
 
@@ -31,7 +31,7 @@
         rs = ps.executeQuery();
 %>
 		{ 
-  			"selleFavorite_info"  : [ 
+  			"sellerFavorite_info"  : [ 
 <%
         while (rs.next()) {
             if (count == 0) {
@@ -43,9 +43,12 @@
             }
 %>            
 			{
-			"userEamil" : "<%=rs.getString(1) %>",
-			"sellerEmail" : "<%=rs.getString(2) %>",
-			"productNo" : "<%=rs.getString(3) %>"
+			"userEmail" : "<%=rs.getString(1) %>",
+			"favoriteSellerEmail" : "<%=rs.getString(2) %>",
+			"sellerEmail" : "<%=rs.getString(3) %>",
+			"productNo" : "<%=rs.getString(4) %>",
+			"sellerName" : "<%=rs.getString(5) %>",
+			"sellerImage" : "<%=rs.getString(6) %>"
 
 			
 			}

@@ -21,7 +21,7 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
        String query = "select r.userinfo_userEmail sellerEmail, p.productNo, productName, productPrice, productContent, productFilename, productDFilename, ";
-	String query1 = "productAFilename from product p, register r where p.productNo = r.product_productNo and p.productNo = ?";
+	String query1 = "productAFilename, u.userImage sellerImage from product p, register r, userinfo u where p.productNo = r.product_productNo and p.productNo = ?";
 
         ps = conn_mysql.prepareStatement(query + query1); // 
         ps.setString(1, productno);
@@ -48,7 +48,8 @@
 			"productContent" : "<%=rs.getString(5) %>",   
 			"productFilename" : "<%=rs.getString(6) %>",
 			"productDFilename" : "<%=rs.getString(7) %>",
-			"productAFilename" : "<%=rs.getString(8) %>"
+			"productAFilename" : "<%=rs.getString(8) %>",
+			"sellerImage" : "<%=rs.getString(9) %>"
 		
 			}
 
