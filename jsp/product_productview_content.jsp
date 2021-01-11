@@ -20,8 +20,8 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select r.userinfo_userEmail sellerEmail, p.productNo, productName, productPrice, productContent, productFilename, productDFilename, ";
-	String query1 = "productAFilename, u.userImage sellerImage from product p, register r, userinfo u where p.productNo = r.product_productNo and p.productNo = ?";
+       String query = "select r.userinfo_userEmail sellerEmail, p.productNo, p.productName, p.productPrice, p.productContent, p.productFilename, p.productDFilename, p.productAFilename, u.userImage sellerImage from product p, register r, userinfo u ";
+	String query1 = "where p.productNo = r.product_productNo and u.userEmail = r.userinfo_userEmail and p.productNo = ?";
 
         ps = conn_mysql.prepareStatement(query + query1); // 
         ps.setString(1, productno);
