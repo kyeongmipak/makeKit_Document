@@ -4,7 +4,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-	String sellereamil = request.getParameter("sellereamil");
+	String selleremail = request.getParameter("selleremail");
 	String useremail = request.getParameter("useremail");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
@@ -21,12 +21,12 @@
 		Statement stmt_mysql = conn_mysql.createStatement();
 	
 
-       String query = "delete from likeuser where userinfo_liek_userEmail = ? and userinfo_userEmail = ?";
+       String query = "delete from likeuser where userinfo_userEmail = ? and userinfo_like_userEmail = ?";
 	
         ps = conn_mysql.prepareStatement(query);
-	
-		ps.setString(1, sellereamil);
-		ps.setString(2, useremail);
+
+		ps.setString(1, useremail);
+		ps.setString(2, selleremail);
 		
 		
 		result = ps.executeUpdate();

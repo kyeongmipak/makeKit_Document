@@ -5,7 +5,7 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	String useremail = request.getParameter("useremail");
-	String sellereamil = request.getParameter("sellereamil");
+	String selleremail = request.getParameter("selleremail");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -21,11 +21,11 @@
 		Statement stmt_mysql = conn_mysql.createStatement();
 	
 
-       String query = "insert into likeuser (userinfo_userEmail, userinfo_liek_userEmail) values (?,?)";
+       String query = "insert into likeuser (userinfo_userEmail, userinfo_like_userEmail) values (?,?)";
 	
         ps = conn_mysql.prepareStatement(query);
 		ps.setString(1, useremail);
-		ps.setString(2, sellereamil);
+		ps.setString(2, selleremail);
 	
 		
 		
