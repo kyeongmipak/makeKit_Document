@@ -34,9 +34,9 @@
 			"userEmail" : "<%=rs.getString(1) %>", 
 			"userName" : "<%=rs.getString(2) %>",   
 			"userPw" : "<%=rs.getString(3) %>",  
-            "userAddress" : "<%=rs.getString(4) %>"
-            "userAddressDetail" : "<%=rs.getString(5) %>"
-            "userTel" : "<%=rs.getString(6) %>"
+            "userAddress" : "<%=rs.getString(4) %>",
+            "userAddressDetail" : "<%=rs.getString(5) %>",
+            "userTel" : "<%=rs.getString(6) %>",
             "userBirth" : "<%=rs.getString(7) %>"
 			}
 
