@@ -8,6 +8,8 @@
 	String orderReview = request.getParameter("orderReview");
 	String reviewImg = request.getParameter("reviewImg"); 
 	String useremail = request.getParameter("useremail");
+	String orderNo = request.getParameter("orderDetailNo");
+	String productNo = request.getParameter("productNo");
 
 		
 //------
@@ -26,12 +28,15 @@
 		String A = "UPDATE orderdetail d, orderinfo i, userinfo u, product p SET d.orderStar = ?,";
 		String B = " d.orderReview = ?, d.orderReviewImg = ?, d.orderReviewInsertDate = now()";
 		String C = " where d.orderinfo_orderNo = i.orderNo and u.userEmail = d.userinfo_userEmail and d.goods_productNo= p.productNo and d.userinfo_userEmail= ?";
+		String D = " and d.orderDetailNo = ? and d.goods_productNo = ?";
 	
-	    ps = conn_mysql.prepareStatement(A+B+C);
+	    ps = conn_mysql.prepareStatement(A+B+C+D);
 	    ps.setString(1, orderStar);
 		ps.setString(2, orderReview);
 		ps.setString(3, reviewImg);
 		ps.setString(4, useremail);
+		ps.setString(5, orderNo);
+		ps.setString(6, productNo);
 		
 		result = ps.executeUpdate();
 %>
