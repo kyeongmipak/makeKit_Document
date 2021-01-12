@@ -7,8 +7,9 @@
 	String userName = request.getParameter("name");
 	String userPw = request.getParameter("pw");
 	String userTel = request.getParameter("phone");	
-	String userAddress = request.getParameter("address");	
-	String userAddressDetail = request.getParameter("addressDetail");	
+	String userAddress = request.getParameter("address");
+	String userAddressDetail = request.getParameter("addressDetail");
+	String userBirth = null;
 		
 //------
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
@@ -23,8 +24,8 @@
 	    Connection conn_mysql = DriverManager.getConnection(url_mysql,id_mysql,pw_mysql);
 		Statement stmt_mysql = conn_mysql.createStatement();
 	
-		String A = "INSERT INTO userinfo (userEmail, userPw, userName, userAddress, userAddressDetail, userTel, userInsertDate)";
-		String B = " VALUES (?, ?, ?, ?, ?, ?, now())";
+		String A = "INSERT INTO userinfo (userEmail, userPw, userName, userAddress, userAddressDetail, userTel, userBirth, userInsertDate)";
+		String B = " VALUES (?, ?, ?, ?, ?, ?, ?, now())";
 
 
 	    ps = conn_mysql.prepareStatement(A+B);
@@ -34,6 +35,7 @@
 		ps.setString(4, userAddress);
 		ps.setString(5, userAddressDetail);
 		ps.setString(6, userTel);
+		ps.setString(7, userBirth);
 
 		result = ps.executeUpdate();
 %>

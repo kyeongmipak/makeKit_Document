@@ -9,7 +9,7 @@
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
- 	String pw_mysql = "qwer1234";
+ 	String pw_mysql = "kyeongmi7";
    	
     	int result = 0; // 입력 확인 
 
