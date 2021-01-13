@@ -19,7 +19,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select productNo, productAFilename, productName, productStock, productPrice from userinfo, product, register where ";
+        String WhereDefault = "select productNo, productFilename, productName, productStock, productPrice from userinfo, product, register where ";
         String WhereDefault1 = "register.userinfo_userEmail= userinfo.userEmail and register.userinfo_userEmail = ? and product_productNo= productNo";
 
         ps = conn_mysql.prepareStatement(WhereDefault+WhereDefault1);
