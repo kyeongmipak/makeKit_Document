@@ -4,7 +4,6 @@
 
 <%
     request.setCharacterEncoding("utf-8");
-    String userinfo_userEmail = request.getParameter("userinfo_userEmail");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -19,11 +18,9 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select productNo, productFilename, productName, productStock, productPrice from userinfo, product, register where ";
-        String WhereDefault1 = "register.userinfo_userEmail= userinfo.userEmail and register.userinfo_userEmail = ? and product_productNo= productNo";
+        String WhereDefault = "select p.* from product p left outer join orderdetail d on p.productNo = d.goods_productNo order by productInsertDate desc limit 5";
 
-        ps = conn_mysql.prepareStatement(WhereDefault+WhereDefault1);
-        ps.setString(1, userinfo_userEmail);
+        ps = conn_mysql.prepareStatement(WhereDefault);
         rs = ps.executeQuery();
 %>
 		{ 
@@ -40,10 +37,16 @@
 %>            
 			{
                 "productNo" : "<%=rs.getString(1) %>", 
-                "productAFilename" : "<%=rs.getString(2) %>",   
-                "productName" : <%=rs.getString(3) %>,  
-                "productStock" : "<%=rs.getString(4) %>",
-                "productPrice" : "<%=rs.getString(5) %>"
+                "productName" : "<%=rs.getString(2) %>",   
+                "productType" : "<%=rs.getString(3) %>",  
+                "productPrice" : "<%=rs.getString(4) %>",
+                "productStock" : "<%=rs.getString(5) %>",
+                "productContent" : "<%=rs.getString(6) %>",
+                "productFilename" : "<%=rs.getString(7) %>",
+                "productDFilename" : "<%=rs.getString(8) %>",
+                "productAFilename" : "<%=rs.getString(9) %>",
+                "productInsertDate" : "<%=rs.getString(10) %>",
+                "productDeleteDate" : "<%= rs.getString(11) %>"
 			}
 
 <%		

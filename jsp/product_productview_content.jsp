@@ -21,7 +21,7 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
        String query = "select r.userinfo_userEmail sellerEmail, p.productNo, p.productName, p.productPrice, p.productContent, p.productFilename, p.productDFilename, p.productAFilename, u.userImage sellerImage from product p, register r, userinfo u ";
-	String query1 = "where p.productNo = r.product_productNo and u.userEmail = r.userinfo_userEmail and p.productNo = ?";
+	String query1 = "where p.productNo = r.product_productNo and u.userEmail = r.userinfo_userEmail and p.productNo = ? and p.productDeleteDate is null";
 
         ps = conn_mysql.prepareStatement(query + query1); // 
         ps.setString(1, productno);
