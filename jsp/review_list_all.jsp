@@ -4,7 +4,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-    	String productno = request.getParameter("productno");
+    	String email = request.getParameter("email");
 
 	String url_mysql = "jdbc:mysql://localhost/makekit?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
@@ -21,10 +21,10 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
         String A = "select o.orderDetailNo orderDetailNo, u.userName reviewWriterName, o.orderReview reviewContent, o.orderReviewImg reviewImage, o.orderReviewInsertDate reviewDate, o.orderStar reviewStar ";
-	    String B = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.goods_productNo = ? order by o.orderReviewInsertDate desc";
+	    String B = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.userinfo_useremail = ? order by o.orderReviewInsertDate desc";
 
         ps = conn_mysql.prepareStatement(A + B); // 
-        ps.setString(1, productno);
+        ps.setString(1, email);
 
         rs = ps.executeQuery();
 %>
