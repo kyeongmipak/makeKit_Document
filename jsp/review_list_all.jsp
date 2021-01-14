@@ -21,7 +21,7 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
         String A = "select o.orderDetailNo orderDetailNo, u.userName reviewWriterName, o.orderReview reviewContent, o.orderReviewImg reviewImage, o.orderReviewInsertDate reviewDate, o.orderStar reviewStar ";
-	    String B = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.userinfo_useremail = ? order by o.orderReviewInsertDate desc";
+	    String B = "from orderdetail o, userinfo u where u.userEmail = o.userinfo_userEmail and o.userinfo_useremail = ? and o.orderReview is not null order by o.orderReviewInsertDate desc";
 
         ps = conn_mysql.prepareStatement(A + B); // 
         ps.setString(1, email);

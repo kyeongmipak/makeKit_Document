@@ -42,13 +42,9 @@
             }
 %>            
 			{
-			"orderDetailNo" : "<%=rs.getString(1) %>", 
-			"goods_productNo" : "<%=rs.getString(2) %>", 
-			"productFilename" : "<%=rs.getString(3) %>",   
-			"productName" : "<%=rs.getString(4) %>",
-			"orderQuantity" : "<%=rs.getString(5) %>",
-			"orderConfirm" : "<%=rs.getString(6) %>"
+			"check" : "<%=rs.getString(1) %>"
 			}
+
 
 <%		
         count++;
