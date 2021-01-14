@@ -46,7 +46,7 @@ CREATE TABLE `cartdetail` (
 
 LOCK TABLES `cartdetail` WRITE;
 /*!40000 ALTER TABLE `cartdetail` DISABLE KEYS */;
-INSERT INTO `cartdetail` VALUES (203,44,'song@naver.com',71,3),(292,44,'qkr@naver.com',69,26),(293,43,'qkr@naver.com',69,4);
+INSERT INTO `cartdetail` VALUES (203,44,'song@naver.com',71,3),(292,44,'qkr@naver.com',69,27),(293,43,'qkr@naver.com',69,4);
 /*!40000 ALTER TABLE `cartdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15  2:35:11
+-- Dump completed on 2021-01-15  3:18:31
