@@ -20,7 +20,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-       String query = "select p.productName, p.productFilename, p.productPrice, od.orderQuantity, o.orderDate from orderdetail od, orderinfo o, product p where od.orderinfo_orderNo = o.orderNo and p.productNo = od.goods_productNo and o.orderNo = ?";
+       String query = "select p.productNo, p.productName, p.productFilename, p.productPrice, od.orderQuantity, o.orderDate from orderdetail od, orderinfo o, product p where od.orderinfo_orderNo = o.orderNo and p.productNo = od.goods_productNo and o.orderNo = ?";
         ps = conn_mysql.prepareStatement(query); // 
         ps.setString(1, orderno);
 
@@ -40,11 +40,12 @@
             }
 %>            
 			{
-			"productName" : "<%=rs.getString(1) %>",
-			"productImage" : "<%=rs.getString(2) %>",
-			"productPrice" : "<%=rs.getString(3) %>",
-			"orderQuantity" : "<%=rs.getString(4) %>",
-			"orderDate" : "<%=rs.getString(5) %>"
+			"productNo" : "<%=rs.getString(1) %>",
+			"productName" : "<%=rs.getString(2) %>",
+			"productImage" : "<%=rs.getString(3) %>",
+			"productPrice" : "<%=rs.getString(4) %>",
+			"orderQuantity" : "<%=rs.getString(5) %>",
+			"orderDate" : "<%=rs.getString(6) %>"
 			
 			
 			}
