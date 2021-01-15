@@ -46,7 +46,6 @@ CREATE TABLE `cartdetail` (
 
 LOCK TABLES `cartdetail` WRITE;
 /*!40000 ALTER TABLE `cartdetail` DISABLE KEYS */;
-INSERT INTO `cartdetail` VALUES (203,44,'song@naver.com',71,3),(292,44,'qkr@naver.com',69,27),(293,43,'qkr@naver.com',69,4);
 /*!40000 ALTER TABLE `cartdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +192,6 @@ CREATE TABLE `orderdetail` (
 
 LOCK TABLES `orderdetail` WRITE;
 /*!40000 ALTER TABLE `orderdetail` DISABLE KEYS */;
-INSERT INTO `orderdetail` VALUES (1,'qkr@naver.com',1,44,3,NULL,NULL,NULL,NULL,NULL,NULL),(2,'qkr@naver.com',4,43,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'qkr@naver.com',4,44,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'qkr@naver.com',5,43,4,NULL,NULL,NULL,NULL,NULL,NULL),(5,'qkr@naver.com',5,44,24,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `orderdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +228,6 @@ CREATE TABLE `orderinfo` (
 
 LOCK TABLES `orderinfo` WRITE;
 /*!40000 ALTER TABLE `orderinfo` DISABLE KEYS */;
-INSERT INTO `orderinfo` VALUES (1,'qkr@naver.com','2021-01-14 19:30:27','홍길동','qnrkd','222','010-2222-2222',563000,'신한','1111111','1234','상품 준비중',NULL),(2,'song@naver.com','2021-01-14 23:37:12','유비','부산','상세','010-2222-2222',30000,'신한','2222','2222','상품 준비중',NULL),(3,'song@naver.com','2021-01-14 23:37:18','tkdtp','부산','상세','010-2222-2222',30000,'신한','2222','2222','상품 준비중',NULL),(4,'qkr@naver.com','2021-01-15 00:37:51','홍길동','qntks','qwee','010-2222-2222',611000,'신한','1111111','1234','상품 준비중',NULL),(5,'qkr@naver.com','2021-01-15 00:43:00','홍길동','naa','nudfs','010-2052-2222',635000,'신한','1111111','1234','상품 준비중',NULL);
 /*!40000 ALTER TABLE `orderinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +262,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (43,'김치찌개',NULL,NULL,'13500',NULL,NULL,'2020123116220658.jpg','2020123116220658.jpg','2020123116618250.jpg','2021-01-01 00:00:00',NULL),(44,'된장',NULL,NULL,'24000',NULL,NULL,'2020123116618250.jpg','2020123116618250.jpg','2020123116220658.jpg',NULL,NULL),(45,'1',NULL,NULL,'20000',NULL,NULL,NULL,NULL,NULL,'2021-01-01 00:00:00',NULL),(47,'비빔밥','전주식 비빔밥','korea','12,000','10','전주식 비빔밥','img_product_bibimmakguksu1.png','img_product_bibimmakguksu2.png','img_product_bibimmakguksu3.png','2021-01-15 10:39:54',NULL),(48,'불고기','언양 불고기st','korea','24,000','10','맛있는 불고기 입니다.','img_product_bulgogi1.png','img_product_bulgogi2.png','img_product_bulgogi3.png',NULL,NULL),(54,'황태국','숙취에 좋아요','korea','8,000','10','숙취에 좋은 황태국입니다.','img_product_hwangtae1.png','img_product_hwangtae2.png','img_product_hwangtae3.png',NULL,NULL),(55,'잡채','잔치때 먹던 그맛','korea','15,000','10','잔치에 먹던 그맛 !','img_product_japchae1.png','img_product_japchae2.png','img_product_japchae3.png',NULL,NULL),(56,'몽골리안비프','이국적인 색다른','etc','30,000','10','이국적인 색다른 음식을 맛보세요','beef1.jpg','beef2.jpg','beef3.jpg',NULL,NULL),(57,'평양식 어복쟁반','전통 평양식','etc','27,000','10','전통 평양음식','pyeongyang1.jpg','pyeongyang2.jpg','pyeongyang3.jpg',NULL,NULL),(58,'수비드 스테이크','단백질 풍부 닭가슴살','american','26,800','10','수비드로 부드럽게','chisteak1.jpg','chisteak2.jpg','chisteak3.jpg',NULL,NULL),(59,'단호박 파스타','달콤한 단호박','american','27,000','10','달콤한 단호박과 부드러운 크림','pasta1.jpg','pasta2.jpg','pasta3.jpg',NULL,NULL),(61,'해물 짬뽕 전골','신선한 해물이 가득','korea','17,500','10','신선한 해물이 가득','jjambbong1.jpg','jjambbong2.jpg','jjambbong3.jpg',NULL,NULL),(62,'매운 불족발','술안주로 제격','korea','21,000','10','매운 불족발 !','bul1.jpg','bul2.jpg','bul3.jpg',NULL,NULL),(63,'유니짜장','조선호텔 유니짜장','chinese','9,000','10','조선호텔을 담은 짜장','jjajang1.png','jjajang2.png','jjajang3.png',NULL,NULL),(64,'목살세트','목살 스테이크 세트!','set','24,900','10','영양 가득 한상','set1.jpg','set2.jpg','set3.jpg',NULL,NULL);
+INSERT INTO `product` VALUES (47,'비빔밥','전주식 비빔밥','korea','12,000','10','전주식 비빔밥','img_product_bibimmakguksu1.png','img_product_bibimmakguksu2.png','img_product_bibimmakguksu3.png','2021-01-15 10:39:54',NULL),(48,'불고기','언양 불고기st','korea','24,000','10','맛있는 불고기 입니다.','img_product_bulgogi1.png','img_product_bulgogi2.png','img_product_bulgogi3.png',NULL,NULL),(54,'황태국','숙취에 좋아요','korea','8,000','10','숙취에 좋은 황태국입니다.','img_product_hwangtae1.png','img_product_hwangtae2.png','img_product_hwangtae3.png',NULL,NULL),(55,'잡채','잔치때 먹던 그맛','korea','15,000','10','잔치에 먹던 그맛 !','img_product_japchae1.png','img_product_japchae2.png','img_product_japchae3.png',NULL,NULL),(56,'몽골리안비프','이국적인 색다른','etc','30,000','10','이국적인 색다른 음식을 맛보세요','beef1.jpg','beef2.jpg','beef3.jpg',NULL,NULL),(57,'평양식 어복쟁반','전통 평양식','etc','27,000','10','전통 평양음식','pyeongyang1.jpg','pyeongyang2.jpg','pyeongyang3.jpg',NULL,NULL),(58,'수비드 스테이크','단백질 풍부 닭가슴살','american','26,800','10','수비드로 부드럽게','chisteak1.jpg','chisteak2.jpg','chisteak3.jpg',NULL,NULL),(59,'단호박 파스타','달콤한 단호박','american','27,000','10','달콤한 단호박과 부드러운 크림','pasta1.jpg','pasta2.jpg','pasta3.jpg',NULL,NULL),(61,'해물 짬뽕 전골','신선한 해물이 가득','korea','17,500','10','신선한 해물이 가득','jjambbong1.jpg','jjambbong2.jpg','jjambbong3.jpg',NULL,NULL),(62,'매운 불족발','술안주로 제격','korea','21,000','10','매운 불족발 !','bul1.jpg','bul2.jpg','bul3.jpg',NULL,NULL),(63,'유니짜장','조선호텔 유니짜장','chinese','9,000','10','조선호텔을 담은 짜장','jjajang1.png','jjajang2.png','jjajang3.png',NULL,NULL),(64,'목살세트','목살 스테이크 세트!','set','24,900','10','영양 가득 한상','set1.jpg','set2.jpg','set3.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,7 +291,6 @@ CREATE TABLE `register` (
 
 LOCK TABLES `register` WRITE;
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
-INSERT INTO `register` VALUES ('qkr@naver.com',44,'서울특별시 강남대로 398',NULL),('song@naver.com',43,'서울특별시 강남대로 402',NULL),('qkr@naver.com',45,'서울특별시 강남대로 370',NULL);
 /*!40000 ALTER TABLE `register` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,7 +350,6 @@ CREATE TABLE `wishlist` (
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
-INSERT INTO `wishlist` VALUES ('qkr@naver.com',44,'2021-01-12 02:32:02');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -367,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15 14:38:43
+-- Dump completed on 2021-01-15 14:58:18
