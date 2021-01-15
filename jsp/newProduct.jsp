@@ -37,16 +37,17 @@
 %>            
 			{
                 "productNo" : "<%=rs.getString(1) %>", 
-                "productName" : "<%=rs.getString(2) %>",   
-                "productType" : "<%=rs.getString(3) %>",  
-                "productPrice" : "<%=rs.getString(4) %>",
-                "productStock" : "<%=rs.getString(5) %>",
-                "productContent" : "<%=rs.getString(6) %>",
-                "productFilename" : "<%=rs.getString(7) %>",
-                "productDFilename" : "<%=rs.getString(8) %>",
-                "productAFilename" : "<%=rs.getString(9) %>",
-                "productInsertDate" : "<%=rs.getString(10) %>",
-                "productDeleteDate" : "<%= rs.getString(11) %>"
+                "productName" : "<%=rs.getString(2) %>",
+                "productSubTitle" : "<%=rs.getString(3) %>", 
+                "productType" : "<%=rs.getString(4) %>",  
+                "productPrice" : "<%=rs.getString(5) %>",
+                "productStock" : "<%=rs.getString(6) %>",
+                "productContent" : "<%=rs.getString(7) %>",
+                "productFilename" : "<%=rs.getString(8) %>",
+                "productDFilename" : "<%=rs.getString(9) %>",
+                "productAFilename" : "<%=rs.getString(10) %>",
+                "productInsertDate" : "<%=rs.getString(11) %>",
+                "productDeleteDate" : "<%= rs.getString(12) %>"
 			}
 
 <%		
