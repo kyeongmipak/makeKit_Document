@@ -63,7 +63,7 @@ CREATE TABLE `cartinfo` (
   PRIMARY KEY (`cartNo`,`userinfo_userEmail`),
   KEY `fk_orderinfo_user2_idx` (`userinfo_userEmail`),
   CONSTRAINT `fk_orderinfo_user20` FOREIGN KEY (`userinfo_userEmail`) REFERENCES `userinfo` (`userEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `cartinfo` (
 
 LOCK TABLES `cartinfo` WRITE;
 /*!40000 ALTER TABLE `cartinfo` DISABLE KEYS */;
-INSERT INTO `cartinfo` VALUES (69,'qkr@naver.com'),(71,'song@naver.com');
+INSERT INTO `cartinfo` VALUES (72,'bong@naver.com'),(73,'dong@naver.com'),(74,'gong@naver.com'),(69,'qkr@naver.com'),(75,'qkr@naver.com'),(76,'rong@naver.com'),(71,'song@naver.com'),(77,'song@naver.com');
 /*!40000 ALTER TABLE `cartinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +171,7 @@ CREATE TABLE `orderdetail` (
   `orderinfo_orderNo` int(11) NOT NULL,
   `goods_productNo` int(11) NOT NULL,
   `orderQuantity` int(11) DEFAULT NULL,
-  `orderConfirm` int(2) DEFAULT NULL,
+  `orderConfirm` int(11) DEFAULT NULL,
   `orderRefund` datetime DEFAULT NULL,
   `orderStar` varchar(3) DEFAULT NULL,
   `orderReview` text,
@@ -244,6 +244,7 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `productNo` int(11) NOT NULL AUTO_INCREMENT,
   `productName` varchar(45) DEFAULT NULL,
+  `productSubTitle` varchar(45) DEFAULT NULL,
   `productType` varchar(25) DEFAULT NULL,
   `productPrice` varchar(10) DEFAULT NULL,
   `productStock` varchar(5) DEFAULT NULL,
@@ -253,10 +254,9 @@ CREATE TABLE `product` (
   `productAFilename` varchar(45) DEFAULT NULL,
   `productInsertDate` datetime DEFAULT NULL,
   `productDeleteDate` datetime DEFAULT NULL,
-  `productSubTitle` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`productNo`),
   UNIQUE KEY `prdNo_UNIQUE` (`productNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,7 +265,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (43,'김치찌개',NULL,'13500',NULL,NULL,'2020123116220658.jpg','2020123116220658.jpg','2020123116618250.jpg','2021-01-01 00:00:00',NULL,NULL),(44,'된장',NULL,'24000',NULL,NULL,'2020123116618250.jpg','2020123116618250.jpg','2020123116220658.jpg','2021-01-01 00:00:00',NULL,NULL),(45,'1',NULL,'20000',NULL,NULL,NULL,NULL,NULL,'2021-01-01 00:00:00',NULL,NULL);
+INSERT INTO `product` VALUES (43,'김치찌개',NULL,NULL,'13500',NULL,NULL,'2020123116220658.jpg','2020123116220658.jpg','2020123116618250.jpg','2021-01-01 00:00:00',NULL),(44,'된장',NULL,NULL,'24000',NULL,NULL,'2020123116618250.jpg','2020123116618250.jpg','2020123116220658.jpg',NULL,NULL),(45,'1',NULL,NULL,'20000',NULL,NULL,NULL,NULL,NULL,'2021-01-01 00:00:00',NULL),(47,'비빔밥','전주식 비빔밥','korea','12,000','10','전주식 비빔밥','img_product_bibimmakguksu1.png','img_product_bibimmakguksu2.png','img_product_bibimmakguksu3.png','2021-01-15 10:39:54',NULL),(48,'불고기','언양 불고기st','korea','24,000','10','맛있는 불고기 입니다.','img_product_bulgogi1.png','img_product_bulgogi2.png','img_product_bulgogi3.png',NULL,NULL),(54,'황태국','숙취에 좋아요','korea','8,000','10','숙취에 좋은 황태국입니다.','img_product_hwangtae1.png','img_product_hwangtae2.png','img_product_hwangtae3.png',NULL,NULL),(55,'잡채','잔치때 먹던 그맛','korea','15,000','10','잔치에 먹던 그맛 !','img_product_japchae1.png','img_product_japchae2.png','img_product_japchae3.png',NULL,NULL),(56,'몽골리안비프','이국적인 색다른','etc','30,000','10','이국적인 색다른 음식을 맛보세요','beef1.jpg','beef2.jpg','beef3.jpg',NULL,NULL),(57,'평양식 어복쟁반','전통 평양식','etc','27,000','10','전통 평양음식','pyeongyang1.jpg','pyeongyang2.jpg','pyeongyang3.jpg',NULL,NULL),(58,'수비드 스테이크','단백질 풍부 닭가슴살','american','26,800','10','수비드로 부드럽게','chisteak1.jpg','chisteak2.jpg','chisteak3.jpg',NULL,NULL),(59,'단호박 파스타','달콤한 단호박','american','27,000','10','달콤한 단호박과 부드러운 크림','pasta1.jpg','pasta2.jpg','pasta3.jpg',NULL,NULL),(61,'해물 짬뽕 전골','신선한 해물이 가득','korea','17,500','10','신선한 해물이 가득','jjambbong1.jpg','jjambbong2.jpg','jjambbong3.jpg',NULL,NULL),(62,'매운 불족발','술안주로 제격','korea','21,000','10','매운 불족발 !','bul1.jpg','bul2.jpg','bul3.jpg',NULL,NULL),(63,'유니짜장','조선호텔 유니짜장','chinese','9,000','10','조선호텔을 담은 짜장','jjajang1.png','jjajang2.png','jjajang3.png',NULL,NULL),(64,'목살세트','목살 스테이크 세트!','set','24,900','10','영양 가득 한상','set1.jpg','set2.jpg','set3.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,7 +294,7 @@ CREATE TABLE `register` (
 
 LOCK TABLES `register` WRITE;
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
-INSERT INTO `register` VALUES ('qkr@naver.com',44,NULL,NULL),('song@naver.com',43,NULL,NULL),('qkr@naver.com',45,NULL,NULL);
+INSERT INTO `register` VALUES ('qkr@naver.com',44,'서울특별시 강남대로 398',NULL),('song@naver.com',43,'서울특별시 강남대로 402',NULL),('qkr@naver.com',45,'서울특별시 강남대로 370',NULL);
 /*!40000 ALTER TABLE `register` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -326,7 +326,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES ('qkr@naver.com','123','홍길동',NULL,NULL,NULL,NULL,NULL,NULL,NULL),('song@naver.com','123','유비',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `userinfo` VALUES ('bong@naver.com','abcd','임꺽정','서울시 구로구 개봉동','2','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('dong@naver.com','456789','조르디','서울시 용산구 용산동','427','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('gong@naver.com','qwer1234','홍길동','서울시 서초구 서초동','12-1','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('qkr@naver.com','123','박길동','서울시 중구','55','010-4567-4567',NULL,'2021-01-15',NULL,NULL),('rong@naver.com','1234567','라이언','서울시 강남구 대치동','123-1','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('song@naver.com','123','유비','서울시 영등포구','7',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15  3:18:31
+-- Dump completed on 2021-01-15 14:38:43
