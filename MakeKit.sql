@@ -37,7 +37,7 @@ CREATE TABLE `cartdetail` (
   CONSTRAINT `fk_orderdetail_copy1_cartinfo1` FOREIGN KEY (`cartinfo_cartNo`) REFERENCES `cartinfo` (`cartNo`),
   CONSTRAINT `orderdetail_ibfk_20` FOREIGN KEY (`product_productNo`) REFERENCES `product` (`productNo`),
   CONSTRAINT `orderdetail_ibfk_30` FOREIGN KEY (`userinfo_userEmail`) REFERENCES `userinfo` (`userEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=298 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,6 @@ CREATE TABLE `cartdetail` (
 
 LOCK TABLES `cartdetail` WRITE;
 /*!40000 ALTER TABLE `cartdetail` DISABLE KEYS */;
-INSERT INTO `cartdetail` VALUES (294,54,'qkr@naver.com',69,1),(295,63,'qkr@naver.com',69,1);
 /*!40000 ALTER TABLE `cartdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,6 +128,7 @@ CREATE TABLE `likeuser` (
 
 LOCK TABLES `likeuser` WRITE;
 /*!40000 ALTER TABLE `likeuser` DISABLE KEYS */;
+INSERT INTO `likeuser` VALUES ('qkr@naver.com','gong@naver.com');
 /*!40000 ALTER TABLE `likeuser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +184,7 @@ CREATE TABLE `orderdetail` (
   CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`goods_productNo`) REFERENCES `product` (`productNo`),
   CONSTRAINT `orderdetail_ibfk_3` FOREIGN KEY (`userinfo_userEmail`) REFERENCES `userinfo` (`userEmail`),
   CONSTRAINT `orderdetail_ibfk_4` FOREIGN KEY (`orderinfo_orderNo`) REFERENCES `orderinfo` (`orderNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +193,7 @@ CREATE TABLE `orderdetail` (
 
 LOCK TABLES `orderdetail` WRITE;
 /*!40000 ALTER TABLE `orderdetail` DISABLE KEYS */;
+INSERT INTO `orderdetail` VALUES (6,'qkr@naver.com',6,56,2,1,NULL,'5','정말 맛있었어요!','beef3.jpg','2021-01-12'),(8,'qkr@naver.com',9,56,2,1,NULL,'3','처음과 맛이 조금 달라진거 같은데요?',NULL,'2021-01-15'),(9,'qkr@naver.com',10,48,1,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `orderdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +221,7 @@ CREATE TABLE `orderinfo` (
   PRIMARY KEY (`orderNo`,`userinfo_userEmail`),
   KEY `fk_orderinfo_user2_idx` (`userinfo_userEmail`),
   CONSTRAINT `fk_orderinfo_user2` FOREIGN KEY (`userinfo_userEmail`) REFERENCES `userinfo` (`userEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,6 +230,7 @@ CREATE TABLE `orderinfo` (
 
 LOCK TABLES `orderinfo` WRITE;
 /*!40000 ALTER TABLE `orderinfo` DISABLE KEYS */;
+INSERT INTO `orderinfo` VALUES (6,'qkr@naver.com','2021-01-15 16:14:09','박길동','서울시 중구','55','010-4567-4567',62500,'NH채움','1233-4565-7878','1245','상품 준비중',NULL),(8,'song@naver.com','2021-01-15 16:16:34','tkdtp','부산','상세','010-2222-2222',30000,'신한','2222','2222','상품 준비중',NULL),(9,'qkr@naver.com','2021-01-15 16:44:11','박길동','서울시 중구','55','010-4567-4567',62500,'롯데','1111-1111-1111','5774','상품 준비중',NULL),(10,'qkr@naver.com','2021-01-15 17:26:35','박길동','서울시 중구','55','010-4567-4567',26500,'우리','1234-4444-4444','2342','상품 준비중',NULL);
 /*!40000 ALTER TABLE `orderinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,7 +265,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (47,'비빔밥','전주식 비빔밥','korea','12000','10','전주식 비빔밥','img_product_bibimmakguksu1.png','img_product_bibimmakguksu2.png','img_product_bibimmakguksu3.png','2021-01-15 10:39:54',NULL),(48,'불고기','언양 불고기st','korea','24000','10','맛있는 불고기 입니다.','img_product_bulgogi1.png','img_product_bulgogi2.png','img_product_bulgogi3.png',NULL,NULL),(54,'황태국','숙취에 좋아요','korea','8000','10','숙취에 좋은 황태국입니다.','img_product_hwangtae1.png','img_product_hwangtae2.jpg','img_product_hwangtae3.jpg',NULL,NULL),(55,'잡채','잔치때 먹던 그맛','korea','15000','10','잔치에 먹던 그맛 !','img_product_japchae1.png','img_product_japchae2.png','img_product_japchae3.png',NULL,NULL),(56,'몽골리안비프','이국적인 색다른','etc','30000','10','이국적인 색다른 음식을 맛보세요','beef1.jpg','beef2.jpg','beef3.jpg',NULL,NULL),(57,'평양식 어복쟁반','전통 평양식','etc','27000','10','전통 평양음식','pyeongyang1.jpg','pyeongyang2.jpg','pyeongyang3.jpg',NULL,NULL),(58,'수비드 스테이크','단백질 풍부 닭가슴살','american','26800','10','수비드로 부드럽게','chisteak1.jpg','chisteak2.jpg','chisteak3.jpg',NULL,NULL),(59,'단호박 파스타','달콤한 단호박','american','27000','10','달콤한 단호박과 부드러운 크림','pasta1.jpg','pasta2.jpg','pasta3.jpg',NULL,NULL),(61,'해물 짬뽕 전골','신선한 해물이 가득','korea','17500','10','신선한 해물이 가득','jjambbong1.jpg','jjambbong2.jpg','jjambbong3.jpg',NULL,NULL),(62,'매운 불족발','술안주로 제격','korea','21000','10','매운 불족발 !','bul1.jpg','bul2.jpg','bul3.jpg',NULL,NULL),(63,'유니짜장','조선호텔 유니짜장','chinese','9000','10','조선호텔을 담은 짜장','jjajang1.png','jjajang2.png','jjajang3.png',NULL,NULL),(64,'목살세트','목살 스테이크 세트!','set','24900','10','영양 가득 한상','set1.jpg','set2.jpg','set3.jpg',NULL,NULL);
+INSERT INTO `product` VALUES (47,'비빔밥','전주식 비빔밥','korea','12000','10','전주식 비빔밥','img_product_bibimmakguksu1.png','img_product_bibimmakguksu2.png','img_product_bibimmakguksu3.png','2021-01-15 10:39:54',NULL),(48,'불고기','언양 불고기st','korea','24000','10','맛있는 불고기 입니다.','img_product_bulgogi1.png','img_product_bulgogi2.jpg','img_product_bulgogi3.jpg',NULL,NULL),(54,'황태국','숙취에 좋아요','korea','8000','10','숙취에 좋은 황태국입니다.','img_product_hwangtae1.png','img_product_hwangtae2.jpg','img_product_hwangtae3.jpg',NULL,NULL),(55,'잡채','잔치때 먹던 그맛','korea','15000','10','잔치에 먹던 그맛 !','img_product_japchae1.png','img_product_japchae2.png','img_product_japchae3.png',NULL,NULL),(56,'몽골리안비프','이국적인 색다른','etc','30000','10','이국적인 색다른 음식을 맛보세요','beef1.jpg','beef2.jpg','beef3.jpg',NULL,NULL),(57,'평양식 어복쟁반','전통 평양식','etc','27000','10','전통 평양음식','pyeongyang1.jpg','pyeongyang2.jpg','pyeongyang3.jpg',NULL,NULL),(58,'수비드 스테이크','단백질 풍부 닭가슴살','american','26800','10','수비드로 부드럽게','chisteak1.jpg','chisteak2.jpg','chisteak3.jpg',NULL,NULL),(59,'단호박 파스타','달콤한 단호박','american','27000','10','달콤한 단호박과 부드러운 크림','pasta1.jpg','pasta2.jpg','pasta3.jpg',NULL,NULL),(61,'해물 짬뽕 전골','신선한 해물이 가득','korea','17500','10','신선한 해물이 가득','jjambbong1.jpg','jjambbong2.jpg','jjambbong3.jpg',NULL,NULL),(62,'매운 불족발','술안주로 제격','korea','21000','10','매운 불족발 !','bul1.jpg','bul2.jpg','bul3.jpg',NULL,NULL),(63,'유니짜장','조선호텔 유니짜장','chinese','9000','10','조선호텔을 담은 짜장','jjajang1.png','jjajang2.png','jjajang3.png',NULL,NULL),(64,'목살세트','목살 스테이크 세트!','set','24900','10','영양 가득 한상','set1.jpg','set2.jpg','set3.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +326,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES ('bong@naver.com','abcd','임꺽정','서울시 구로구 개봉동','2','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('dong@naver.com','456789','조르디','서울시 용산구 용산동','427','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('gong@naver.com','qwer1234','홍길동','서울시 서초구 서초동','12-1','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('qkr@naver.com','123','박길동','서울시 중구','55','010-4567-4567',NULL,'2021-01-15',NULL,NULL),('rong@naver.com','1234567','라이언','서울시 강남구 대치동','123-1','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('song@naver.com','123','유비','서울시 영등포구','7','010-1222-4577',NULL,'2021-01-15',NULL,NULL);
+INSERT INTO `userinfo` VALUES ('bong@naver.com','abcd','임꺽정','서울시 구로구 개봉동','2','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('dong@naver.com','456789','조르디','서울시 용산구 용산동','427','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('gong@naver.com','qwer1234','홍길동','서울시 서초구 서초동','12-1','010-1234-1234',NULL,'2021-01-15',NULL,NULL),('qkr@naver.com','123','박길동','서울시 중구','55','010-4567-4567',NULL,'2021-01-15',NULL,'2020123116618250.jpg'),('rong@naver.com','1234567','라이언','서울시 강남구 대치동','123-1','010-1234-1234',NULL,'2021-01-15',NULL,'2020123116618250.jpg'),('song@naver.com','123','유비','서울시 영등포구','7','010-1222-4577',NULL,'2021-01-15',NULL,NULL);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,6 +354,7 @@ CREATE TABLE `wishlist` (
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
+INSERT INTO `wishlist` VALUES ('qkr@naver.com',56,'2021-01-15 18:46:17');
 /*!40000 ALTER TABLE `wishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -364,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15 15:40:30
+-- Dump completed on 2021-01-16 16:47:15
