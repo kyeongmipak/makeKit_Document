@@ -20,9 +20,9 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
         String WhereDefault = "select u.userName, i.*, d.orderDetailNo, d.orderinfo_orderNo, d.goods_productNo, d.orderQuantity, d.orderConfirm, d.orderRefund,";
-        String WhereDefault1 = " d.orderStar, d.orderReview, d.orderReviewImg, d.orderReviewInsertDate , p.productName, p.productPrice, p.productAFilename from userinfo u left outer join orderinfo i on";
-        String WhereDefault2 = " u.userEmail=i.userinfo_userEmail left outer join orderdetail d on i.orderNo = d.orderinfo_orderNo left outer join product p on d.goods_productNo = p.productNo";
-        String WhereDefault3 = " left outer join register r on p.productNo = r.product_productNo where r.userinfo_userEmail = ?";
+        String WhereDefault1 = " d.orderStar, d.orderReview, d.orderReviewImg, d.orderReviewInsertDate , p.productName, p.productPrice, p.productFilename from userinfo u left outer join orderinfo i on";
+        String WhereDefault2 = "  u.userEmail=i.userinfo_userEmail left outer join orderdetail d on i.orderNo = d.orderinfo_orderNo left outer join product p on d.goods_productNo = p.productNo";
+        String WhereDefault3 = "   where u.userEmail = ?";
 
         ps = conn_mysql.prepareStatement(WhereDefault+WhereDefault1+WhereDefault2+WhereDefault3);
         ps.setString(1, userEmail);
